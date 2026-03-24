@@ -5,6 +5,7 @@ import SlideOpening from "@/components/slides/SlideOpening";
 import SlideProblem from "@/components/slides/SlideProblem";
 import SlideSolution from "@/components/slides/SlideSolution";
 import SlideLiveFlow from "@/components/slides/SlideLiveFlow";
+import SlideAgentCommandCenter from "@/components/slides/SlideAgentCommandCenter";
 import SlideTechnology from "@/components/slides/SlideTechnology";
 import SlideFeasibility from "@/components/slides/SlideFeasibility";
 import SlideImpact from "@/components/slides/SlideImpact";
@@ -17,6 +18,7 @@ const SLIDES = [
   SlideProblem,
   SlideSolution,
   SlideLiveFlow,
+  SlideAgentCommandCenter,
   SlideTechnology,
   SlideFeasibility,
   SlideImpact,
@@ -25,7 +27,7 @@ const SLIDES = [
   SlideClosing,
 ];
 
-const SLIDE_DURATIONS = [12, 20, 15, 30, 8, 15, 20, 15, 10, 15]; // seconds per slide
+const SLIDE_DURATIONS = [12, 20, 15, 30, 25, 8, 15, 20, 15, 10, 15]; // seconds per slide
 
 function App() {
   const [currentSlide, setCurrentSlide] = useState(0);
