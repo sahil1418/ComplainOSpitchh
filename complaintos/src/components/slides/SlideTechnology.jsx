@@ -74,31 +74,34 @@ export default function SlideTechnology({ direction }) {
 
         {/* Tech grid - 2x2 with central node */}
         <div style={{ position: "relative", display: "flex", justifyContent: "center" }}>
-          {/* Central AI node */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            style={{
-              position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)",
-              width: 80, height: 80, borderRadius: "50%",
-              background: "rgba(99,102,241,0.1)", border: "2px solid rgba(99,102,241,0.3)",
-              display: "flex", alignItems: "center", justifyContent: "center",
-              zIndex: 20,
-            }}
-          >
+          {/* Central AI node (Wrapper to prevent transform conflict with Framer Motion) */}
+          <div style={{
+            position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)",
+            zIndex: 20, display: "flex", alignItems: "center", justifyContent: "center",
+          }}>
             <motion.div
-              animate={{ boxShadow: ["0 0 20px rgba(99,102,241,0.3)", "0 0 50px rgba(99,102,241,0.5)", "0 0 20px rgba(99,102,241,0.3)"] }}
-              transition={{ duration: 2.5, repeat: Infinity }}
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               style={{
-                width: 56, height: 56, borderRadius: "50%",
-                background: "linear-gradient(135deg, #6366f1, #8b5cf6)",
+                width: 80, height: 80, borderRadius: "50%",
+                background: "rgba(99,102,241,0.1)", border: "2px solid rgba(99,102,241,0.3)",
                 display: "flex", alignItems: "center", justifyContent: "center",
               }}
             >
-              <Cpu size={24} color="white" />
+              <motion.div
+                animate={{ boxShadow: ["0 0 20px rgba(99,102,241,0.3)", "0 0 50px rgba(99,102,241,0.5)", "0 0 20px rgba(99,102,241,0.3)"] }}
+                transition={{ duration: 2.5, repeat: Infinity }}
+                style={{
+                  width: 56, height: 56, borderRadius: "50%",
+                  background: "linear-gradient(135deg, #6366f1, #8b5cf6)",
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                }}
+              >
+                <Cpu size={24} color="white" />
+              </motion.div>
             </motion.div>
-          </motion.div>
+          </div>
 
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, maxWidth: 700, width: "100%" }}>
             {techItems.map((item, i) => (
